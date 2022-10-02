@@ -1,0 +1,57 @@
+import java.util.Scanner;
+class Guesser
+{String gcol;
+    String guessingColor()
+    {System.out.println("GUESSOR GUESS A COLOR");
+        Scanner scan = new Scanner(System.in);
+        gcol= scan.next();
+        return gcol;
+    }
+}
+class Player
+{String pcol;
+String predictingColor()
+{System.out.println("PLAYER PREDICT A COLOR");
+  Scanner scan = new Scanner(System.in);
+        pcol= scan.next();
+        return pcol;   
+}
+}
+class Joker
+{
+    String colFromGuesser;
+     String  colFromPlayer1;
+     String  colFromPlayer2;
+    
+    void collectColFromGuesser()
+    {Guesser g= new Guesser();
+        colFromGuesser=g.guessingColor();
+    }
+    void collectColFromPlayer()
+    {Player p1= new Player();
+    Player p2= new Player();
+    
+    colFromPlayer1=p1.predictingColor();
+     colFromPlayer2=p2.predictingColor();
+     
+     }
+     void compare()
+     {if(colFromPlayer1==colFromGuesser)
+         {System.out.println("CONGRATULATIONS !!PLAYER 1 GUESSED IT RIGHT");}
+         else if (colFromPlayer2==colFromGuesser)
+         {System.out.println("CONGRATULATIONS !!PLAYER 2 GUESSED IT RIGHT");}
+         
+         else 
+        {System.out.println("oh no !!BETTER LUCK NEXT TIME:(");}
+         
+         
+     }
+    }
+class GuesserGameApp {
+    public static void main(String[] args) {
+      Joker j=new Joker();
+     j.collectColFromGuesser();
+     j.collectColFromPlayer();
+     j.compare();
+    }
+}
